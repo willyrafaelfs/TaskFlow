@@ -16,10 +16,17 @@ Aplikasi daftar tugas sederhana yang berjalan langsung di browser. Tambahkan tug
 
 Persyaratan: Python 3 untuk menjalankan server web lokal. Tidak ada dependensi proyek yang perlu dipasang.
 
-Klon repositori dan masuk ke folder proyek:
+Klon repositori dari GitHub atau GitLab, lalu masuk ke folder proyek:
 
 ```bash
 git clone https://github.com/willyrafaelfs/TaskFlow.git
+cd TaskFlow
+```
+
+Atau gunakan GitLab:
+
+```bash
+git clone https://gitlab.com/willyrafaelfs/TaskFlow.git
 cd TaskFlow
 ```
 
@@ -42,24 +49,6 @@ python index.py
 ```
 
 Versi terminal berjalan terpisah dari aplikasi web dan tidak menggunakan daftar tugas yang sama.
-
-## Deploy ke GitHub Pages
-
-1. Buka [Settings → Pages](https://github.com/willyrafaelfs/TaskFlow/settings/pages) pada repositori.
-2. Pada bagian **Build and deployment**, pilih **Deploy from a branch**.
-3. Pilih branch `main` dan folder `/(root)`, lalu klik **Save**.
-4. Tunggu proses publikasi selesai. Alamat situs akan ditampilkan di halaman **Settings → Pages**. Alamat yang diharapkan adalah <https://willyrafaelfs.github.io/TaskFlow/>.
-
-GitHub Pages menyajikan aplikasi web statis dari berkas di repositori. Berkas `index.py` adalah program terminal dan tidak dijalankan oleh GitHub Pages.
-
-## Deploy ke GitLab Pages
-
-Repositori ini menyertakan pipeline GitLab CI/CD di `.gitlab-ci.yml`. Setiap push ke branch default akan menyalin berkas aplikasi web ke folder publik dan menerbitkannya melalui GitLab Pages.
-
-1. Pastikan pipeline berjalan di **Build → Pipelines** setelah push ke branch default.
-2. Setelah job `deploy-pages` berhasil, buka **Deploy → Pages** untuk melihat alamat situs.
-
-GitLab Pages hanya menerbitkan aplikasi web statis; program terminal `index.py` tidak dijalankan.
 
 ## Penyimpanan data
 
