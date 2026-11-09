@@ -1,41 +1,66 @@
 # TaskFlow
 
-Aplikasi daftar tugas sederhana berbasis web. Nama **TaskFlow** direkomendasikan sebagai nama proyek karena singkat, mudah diingat, dan menggambarkan alur pengelolaan tugas. Nama yang digunakan di antarmuka saat ini masih “My Todo List”.
+Aplikasi daftar tugas sederhana yang berjalan langsung di browser. Tambahkan tugas, tandai sebagai selesai, dan saring daftar sesuai statusnya. Aplikasi web tidak memerlukan proses build atau instalasi dependensi.
 
 ## Fitur
 
-- Menambahkan tugas.
-- Menandai tugas sebagai selesai atau aktif.
-- Memfilter daftar berdasarkan semua, aktif, atau selesai.
-- Menghapus tugas satu per satu atau menghapus semua tugas yang selesai.
-- Menyimpan daftar tugas di `localStorage` browser, sehingga data tetap ada setelah halaman dimuat ulang pada browser yang sama.
-- Menyediakan versi alternatif berbasis terminal melalui Python.
+- Menambahkan dan menghapus tugas.
+- Menandai tugas sebagai selesai atau belum selesai.
+- Menyaring daftar untuk melihat semua, tugas aktif, atau tugas selesai.
+- Menghapus semua tugas yang sudah selesai.
+- Menyimpan tugas di `localStorage` browser.
 
-## Menjalankan aplikasi web
+## Menjalankan secara lokal
 
-Tidak diperlukan instalasi dependensi. Dari folder proyek, jalankan server web lokal:
+### Aplikasi web
 
-```powershell
+Persyaratan: Python 3 untuk menjalankan server web lokal. Tidak ada dependensi proyek yang perlu dipasang.
+
+Klon repositori dan masuk ke folder proyek:
+
+```bash
+git clone https://github.com/willyrafaelfs/Todo.git
+cd Todo
+```
+
+Jalankan server lokal:
+
+```bash
 python -m http.server 8000
 ```
 
-Buka <http://localhost:8000> di browser. Untuk menghentikan server, tekan `Ctrl+C` di terminal.
+Buka <http://localhost:8000> di browser. Hentikan server dengan `Ctrl+C` di terminal.
 
-Ikon pada halaman menggunakan Font Awesome dari CDN, sehingga ikon memerlukan koneksi internet.
+> Ikon menggunakan Font Awesome dari CDN, sehingga memerlukan koneksi internet.
 
-## Menjalankan versi terminal
+### Aplikasi terminal Python
 
-Jika Python tersedia, jalankan:
+Repositori ini juga menyertakan versi daftar tugas berbasis terminal:
 
-```powershell
+```bash
 python index.py
 ```
 
-Ikuti menu di terminal untuk menambah, melihat, menyelesaikan, dan menghapus tugas.
+Versi terminal berjalan terpisah dari aplikasi web dan tidak menggunakan daftar tugas yang sama.
 
-## Berkas proyek
+## Deploy ke GitHub Pages
 
-- `index.html` — struktur halaman aplikasi web.
-- `styles.css` — tampilan dan gaya aplikasi.
-- `script.js` — interaksi aplikasi web dan penyimpanan browser.
-- `index.py` — versi aplikasi daftar tugas berbasis terminal.
+1. Buka [Settings → Pages](https://github.com/willyrafaelfs/Todo/settings/pages) pada repositori.
+2. Pada bagian **Build and deployment**, pilih **Deploy from a branch**.
+3. Pilih branch `main` dan folder `/(root)`, lalu klik **Save**.
+4. Tunggu proses publikasi selesai. Alamat situs akan ditampilkan di halaman **Settings → Pages**. Untuk repositori ini, alamat yang diharapkan adalah <https://willyrafaelfs.github.io/Todo/>.
+
+GitHub Pages menyajikan aplikasi web statis dari berkas di repositori. Berkas `index.py` adalah program terminal dan tidak dijalankan oleh GitHub Pages.
+
+## Penyimpanan data
+
+Daftar tugas disimpan di `localStorage`. Data hanya tersedia pada browser dan perangkat tempat tugas dibuat; data tidak tersinkron ke perangkat lain. Menghapus data situs dari browser juga dapat menghapus daftar tugas.
+
+## Struktur berkas
+
+| Berkas | Keterangan |
+| --- | --- |
+| `index.html` | Struktur halaman aplikasi web |
+| `styles.css` | Gaya dan tata letak |
+| `script.js` | Interaksi aplikasi dan penyimpanan tugas di browser |
+| `index.py` | Versi aplikasi daftar tugas berbasis terminal |
