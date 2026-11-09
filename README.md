@@ -19,8 +19,8 @@ Persyaratan: Python 3 untuk menjalankan server web lokal. Tidak ada dependensi p
 Klon repositori dan masuk ke folder proyek:
 
 ```bash
-git clone https://github.com/willyrafaelfs/Todo.git
-cd Todo
+git clone https://github.com/willyrafaelfs/TaskFlow.git
+cd TaskFlow
 ```
 
 Jalankan server lokal:
@@ -45,12 +45,21 @@ Versi terminal berjalan terpisah dari aplikasi web dan tidak menggunakan daftar 
 
 ## Deploy ke GitHub Pages
 
-1. Buka [Settings → Pages](https://github.com/willyrafaelfs/Todo/settings/pages) pada repositori.
+1. Buka [Settings → Pages](https://github.com/willyrafaelfs/TaskFlow/settings/pages) pada repositori.
 2. Pada bagian **Build and deployment**, pilih **Deploy from a branch**.
 3. Pilih branch `main` dan folder `/(root)`, lalu klik **Save**.
-4. Tunggu proses publikasi selesai. Alamat situs akan ditampilkan di halaman **Settings → Pages**. Untuk repositori ini, alamat yang diharapkan adalah <https://willyrafaelfs.github.io/Todo/>.
+4. Tunggu proses publikasi selesai. Alamat situs akan ditampilkan di halaman **Settings → Pages**. Alamat yang diharapkan adalah <https://willyrafaelfs.github.io/TaskFlow/>.
 
 GitHub Pages menyajikan aplikasi web statis dari berkas di repositori. Berkas `index.py` adalah program terminal dan tidak dijalankan oleh GitHub Pages.
+
+## Deploy ke GitLab Pages
+
+Repositori ini menyertakan pipeline GitLab CI/CD di `.gitlab-ci.yml`. Setiap push ke branch default akan menyalin berkas aplikasi web ke folder publik dan menerbitkannya melalui GitLab Pages.
+
+1. Pastikan pipeline berjalan di **Build → Pipelines** setelah push ke branch default.
+2. Setelah job `deploy-pages` berhasil, buka **Deploy → Pages** untuk melihat alamat situs.
+
+GitLab Pages hanya menerbitkan aplikasi web statis; program terminal `index.py` tidak dijalankan.
 
 ## Penyimpanan data
 

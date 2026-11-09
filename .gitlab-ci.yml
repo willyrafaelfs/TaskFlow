@@ -1,0 +1,15 @@
+stages:
+  - deploy
+
+deploy-pages:
+  stage: deploy
+  script:
+    - mkdir -p public
+    - cp index.html styles.css script.js public/
+  artifacts:
+    paths:
+      - public
+  pages:
+    publish: public
+  rules:
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
